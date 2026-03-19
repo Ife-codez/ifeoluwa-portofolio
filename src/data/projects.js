@@ -1,6 +1,6 @@
 import visitorImg from '../assets/projects/visitor-mgmt.JPG';
-import freelanceImg from '../assets/projects/freelance-flow.jpg';
-import clereviewImg from '../assets/projects/clereview.jpg';
+import freelanceImg from '../assets/projects/freelance-flow.JPG';
+import clereviewImg from '../assets/projects/clereview.JPG';
 export const projects = [
   {
     id: 1,
