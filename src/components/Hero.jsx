@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 function Hero() {
   return (
     // Changed min-h-screen to min-h-[90vh] to help reduce the massive gap to the next section
-    <section id="hero" className="min-h-[90vh] flex items-center justify-center px-6 pt-20">
+    <section id="hero" className="min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-6 py-12 md:pt-20 md:pb-0">
       <div className="max-w-5xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         
         {/* Left Side: Text Content */}
-        <div className="space-y-2">
+        <div className="space-y-2 ">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -21,7 +21,7 @@ function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4"
           >
             Ifeoluwa Adelekan
           </motion.h1>
@@ -30,7 +30,7 @@ function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-2xl sm:text-3xl font-semibold text-gray-400 mb-6"
+            className="text-xl sm:text-2xl font-semibold text-gray-400 mb-6"
           >
             Fullstack Developer
           </motion.h2>

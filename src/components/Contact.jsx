@@ -3,13 +3,38 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    // For now, we'll just simulate a successful submission
-    setIsSubmitted(true);
-    // Reset after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.target);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    // REPLACE THIS with your actual Access Key from Web3Forms
+    formData.append("access_key", accessKey);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        e.target.reset(); // Clear the form
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Submission failed. Check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,6 +67,7 @@ function Contact() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                     <input
+                      name="name"
                       required
                       type="text"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
@@ -51,6 +77,7 @@ function Contact() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                     <input
+                      name="email"
                       required
                       type="email"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
@@ -62,6 +89,7 @@ function Contact() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                   <textarea
+                    name="message"
                     required
                     rows="5"
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all resize-none"
@@ -70,12 +98,14 @@ function Contact() {
                 </div>
 
                 <motion.button
+                  disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-indigo-600 text-white font-bold py-4 rounded-lg hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+                  className={`w-full text-white font-bold py-4 rounded-lg transition-colors shadow-lg 
+                    ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200'}`}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </motion.button>
               </motion.form>
             ) : (
@@ -99,9 +129,9 @@ function Contact() {
 
         {/* Social Links Footer */}
         <div className="mt-16 flex justify-center gap-8 text-gray-400">
-          <a href="#" className="hover:text-indigo-600 transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-indigo-600 transition-colors">GitHub</a>
-          <a href="#" className="hover:text-indigo-600 transition-colors">Twitter</a>
+          <a href="https://www.linkedin.com/in/kaosara-adelekan-07b912365/" className="hover:text-indigo-600 transition-colors">LinkedIn</a>
+          <a href="https://github.com/ife-codez" className="hover:text-indigo-600 transition-colors">GitHub</a>
+          <a href="https://x.com/the__Ifeoluwa" className="hover:text-indigo-600 transition-colors">Twitter</a>
         </div>
       </div>
     </section>

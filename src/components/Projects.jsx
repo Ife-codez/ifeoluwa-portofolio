@@ -30,7 +30,7 @@ function Projects() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Selected Works</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Projects</h2>
           <p className="text-gray-500">A collection of projects I've built or contributed to.</p>
         </motion.div>
 
