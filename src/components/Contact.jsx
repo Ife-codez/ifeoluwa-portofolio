@@ -38,10 +38,10 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-14 px-6 bg-gray-50">
+    <section id="contact" className="py-14 px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <p className="text-gray-500">
             Have a project in mind or just want to say hi? Feel free to reach out!
           </p>

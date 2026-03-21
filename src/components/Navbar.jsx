@@ -33,7 +33,7 @@ function Navbar() {
         scrolled ? 'bg-white shadow-sm border-b border-gray-100' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-6 lg:px-0 py-4 flex items-center justify-between">
         
         {/* Logo / Name - FIXED TAG HERE */}
         <a

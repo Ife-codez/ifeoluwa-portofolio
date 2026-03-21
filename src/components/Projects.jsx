@@ -22,7 +22,7 @@ const cardVariants = {
 
 function Projects() {
   return (
-    <section id="projects" className="py-14 px-6 bg-white">
+    <section id="projects" className="py-14 px-6 bg-white scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -30,7 +30,7 @@ function Projects() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Projects</h2>
           <p className="text-gray-500">A collection of projects I've built or contributed to.</p>
         </motion.div>
 

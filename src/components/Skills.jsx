@@ -37,10 +37,10 @@ const itemVariants = {
 
 function Skills() {
   return (
-    <section id="skills" className="py-14 px-6 bg-white">
+    <section id="skills" className="py-14 px-6 bg-white scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Technical Skills</h2>
           <div className="w-16 h-1 bg-indigo-600 mx-auto rounded-full" />
         </div>
 

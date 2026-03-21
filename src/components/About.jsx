@@ -4,7 +4,7 @@ import myImage from '../assets/my-photo.png';
 function About() {
   
   return (
-    <section id="about" className="py-14 px-6 bg-gray-50">
+    <section id="about" className="py-14 px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* We use whileInView to trigger animation when the user scrolls here */}
         <motion.div
@@ -25,7 +25,7 @@ function About() {
 
           {/* Right Side: Text */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-gray-900">About Me</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">About Me</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
               I am a passionate Fullstack Developer based in Nigeria. I love 
               transforming complex problems into into well-structured systems, combining clean frontend architecture with reliable backend logic. 

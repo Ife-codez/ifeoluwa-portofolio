@@ -24,13 +24,13 @@ const itemVariants = {
 
 function Resume() {
   return (
-    <section id="resume" className="py-14 px-6 bg-gray-50">
+    <section id="resume" className="py-14 px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16">
           
           {/* Experience Column */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 flex items-center gap-2">
               <span className="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm">1</span>
               Experience
             </h2>
@@ -58,7 +58,7 @@ function Resume() {
 
           {/* Education Column */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 flex items-center gap-2">
               <span className="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm">2</span>
               Education
             </h2>
