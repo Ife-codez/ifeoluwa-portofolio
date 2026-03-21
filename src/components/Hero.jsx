@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 function Hero() {
   return (
     // Changed min-h-screen to min-h-[90vh] to help reduce the massive gap to the next section
-    <section id="hero" className="min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-6 py-12 md:pt-20 md:pb-0">
+    <section id="hero" className="min-h-fit md:min-h-screen flex items-center justify-center px-6 py-20 md:py-0">
       <div className="max-w-5xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         
         {/* Left Side: Text Content */}
@@ -70,7 +70,7 @@ function Hero() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden md:flex justify-center items-center relative h-[400px]"
+          className="hidden md:flex justify-center items-center relative h-100"
         >
           {/* Decorative Background Glow */}
           <div className="absolute w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />

@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { handleScroll } from '../utils/scrollToSection';
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Resume', href: '#resume' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: 'about' },
+  { label: 'Resume', href: 'resume' },
+  { label: 'Projects', href: 'projects' },
+  { label: 'Skills', href: 'skills' },
+  { label: 'Contact', href: 'contact' },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const onNavClick = (e, id) => {
+    handleScroll(e, id); // Run the smooth scroll logic
+    setMenuOpen(false);  // Close mobile menu if it's open
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +66,7 @@ function Navbar() {
         {/* CTA Button - FIXED TAG HERE */}
         <a
           href="#contact"
+          onClick={(e) => onNavClick(e, 'contact')}
           className="hidden md:inline-block text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
         >
           Hire Me
@@ -81,27 +87,22 @@ function Navbar() {
       {/* Mobile Menu with AnimatePresence for smooth exit */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
-          >
+          <motion.div className="md:hidden bg-white border-t ...">
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+                  href={`#${link.href}`}
+                  onClick={(e) => onNavClick(e, link.href)} // Use the wrapper here
+                  className="text-sm font-medium text-gray-600"
                 >
                   {link.label}
                 </a>
               ))}
               <a
                 href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-lg text-center hover:bg-indigo-700 transition-colors"
+                onClick={(e) => onNavClick(e, 'contact')}
+                className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-center"
               >
                 Hire Me
               </a>
