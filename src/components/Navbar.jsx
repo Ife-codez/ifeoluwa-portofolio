@@ -43,6 +43,7 @@ function Navbar() {
         {/* Logo / Name - FIXED TAG HERE */}
         <a
           href="#hero"
+          onClick={(e) => onNavClick(e, 'hero')}
           className="text-lg font-bold tracking-tight text-gray-900 hover:text-indigo-600 transition-colors"
         >
           Ifeoluwa<span className="text-indigo-600">.</span>
@@ -54,7 +55,8 @@ function Navbar() {
             <li key={link.href}>
               {/* FIXED TAG HERE */}
               <a
-                href={link.href}
+                href={`#${link.href}`}
+                onClick={(e) => onNavClick(e, link.href)}
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
               >
                 {link.label}
